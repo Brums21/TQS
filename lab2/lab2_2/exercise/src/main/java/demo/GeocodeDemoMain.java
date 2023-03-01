@@ -33,15 +33,12 @@ public class GeocodeDemoMain {
      */
     public static void main(String[] args) {
 
-
         try {
             AddressResolver resolver =new AddressResolver( new TqsBasicHttpClient());
             
             Optional<Address> result = resolver.findAddressForLocation( 40.633116,-8.658784);
             log.info("Result: ".concat( result.get().toString() ) );
 
-            Optional<Address> result1 = resolver.findAddressForLocation( -361.0, -361.0);
-            log.info("Result: ".concat( result1.get().toString() ) );
         } catch (URISyntaxException | IOException | ParseException | org.json.simple.parser.ParseException ex) {
             log.error(String.valueOf(ex));
         }
