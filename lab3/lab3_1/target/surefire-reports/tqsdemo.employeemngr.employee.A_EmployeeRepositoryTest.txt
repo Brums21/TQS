@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: tqsdemo.employeemngr.employee.A_EmployeeRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.246 s - in tqsdemo.employeemngr.employee.A_EmployeeRepositoryTest
