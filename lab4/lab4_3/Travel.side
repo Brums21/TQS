@@ -1,0 +1,134 @@
+{
+  "id": "097b6b3e-e668-4532-97e1-f4bbe77404d1",
+  "version": "2.0",
+  "name": "Travel",
+  "url": "https://blazedemo.com/",
+  "tests": [{
+    "id": "c37caaf5-7005-4a6c-8904-a087e47209c7",
+    "name": "Untitled",
+    "commands": [{
+      "id": "d9b3a720-d970-4c8e-bdbb-c7884045c7fc",
+      "comment": "",
+      "command": "open",
+      "target": "https://blazedemo.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dd3df9bd-713e-4198-b3cc-d629e452493a",
+      "comment": "",
+      "command": "click",
+      "target": "name=fromPort",
+      "targets": [
+        ["name=fromPort", "name"],
+        ["css=.form-inline:nth-child(1)", "css:finder"],
+        ["xpath=//select[@name='fromPort']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1f38593e-7968-4687-b789-4b767a9d6cbc",
+      "comment": "",
+      "command": "select",
+      "target": "name=fromPort",
+      "targets": [
+        ["name=fromPort", "name"],
+        ["css=.form-inline:nth-child(1)", "css:finder"],
+        ["xpath=//select[@name='fromPort']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": "Portland"
+    }, {
+      "id": "c289ffc4-bd63-4f6b-9260-d863835edd2e",
+      "comment": "",
+      "command": "click",
+      "target": "name=toPort",
+      "targets": [
+        ["name=toPort", "name"],
+        ["css=.form-inline:nth-child(4)", "css:finder"],
+        ["xpath=//select[@name='toPort']", "xpath:attributes"],
+        ["xpath=//select[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7809de2d-7098-4ad4-a0f1-ec922e88fa47",
+      "comment": "",
+      "command": "select",
+      "target": "name=toPort",
+      "targets": [
+        ["name=toPort", "name"],
+        ["css=.form-inline:nth-child(4)", "css:finder"],
+        ["xpath=//select[@name='toPort']", "xpath:attributes"],
+        ["xpath=//select[2]", "xpath:position"]
+      ],
+      "value": "Berlin"
+    }, {
+      "id": "58522046-78d7-4fc3-82b7-c569fb22e4a3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//input[@value='Find Flights']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "18927478-e26e-43cb-ba0e-ce2120e6016c",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h3",
+      "targets": [
+        ["css=h3", "css:finder"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Flights from Portland to Berlin:')]", "xpath:innerText"]
+      ],
+      "value": "Flights from Portland to Berlin:"
+    }, {
+      "id": "bc4bef57-6992-40ee-aa3f-2ae926206da9",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(3) .btn",
+      "targets": [
+        ["css=tr:nth-child(3) .btn", "css:finder"],
+        ["xpath=(//input[@value='Choose This Flight'])[3]", "xpath:attributes"],
+        ["xpath=//tr[3]/td/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "678a544e-2bea-4e8e-9220-245171f1a32f",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "BlazeDemo Purchase",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "157e0a6f-f19f-4635-ac48-aa2fb090f0df",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-primary",
+      "targets": [
+        ["css=.btn-primary", "css:finder"],
+        ["xpath=//input[@value='Purchase Flight']", "xpath:attributes"],
+        ["xpath=//div[11]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "da34a7d4-8136-4021-8c68-0886206f7af0",
+      "comment": "",
+      "command": "assertTitle",
+      "target": "BlazeDemo Confirmation",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "4675968f-6497-4dde-a411-e435688deab9",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["c37caaf5-7005-4a6c-8904-a087e47209c7"]
+  }],
+  "urls": ["https://blazedemo.com/"],
+  "plugins": []
+}
