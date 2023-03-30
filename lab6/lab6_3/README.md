@@ -1,0 +1,1 @@
+I decided to use the default quality gate. Since we had a lot of classes that did not require any testing (spring boot security and jwt token), the code coverage in those classes should be lower (not much can be tested).
