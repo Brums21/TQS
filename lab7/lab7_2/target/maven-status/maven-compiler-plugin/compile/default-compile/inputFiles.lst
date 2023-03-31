@@ -1,0 +1,6 @@
+/home/bruna/Desktop/TQS/lab3/lab3_2/tqsCars/src/main/java/lab3_2/tqsCars/model/Car.java
+/home/bruna/Desktop/TQS/lab3/lab3_2/tqsCars/src/main/java/lab3_2/tqsCars/boundary/ResourceNotFoundException.java
+/home/bruna/Desktop/TQS/lab3/lab3_2/tqsCars/src/main/java/lab3_2/tqsCars/GsCarsContainersApplication.java
+/home/bruna/Desktop/TQS/lab3/lab3_2/tqsCars/src/main/java/lab3_2/tqsCars/boundary/CarController.java
+/home/bruna/Desktop/TQS/lab3/lab3_2/tqsCars/src/main/java/lab3_2/tqsCars/data/CarRepository.java
+/home/bruna/Desktop/TQS/lab3/lab3_2/tqsCars/src/main/java/lab3_2/tqsCars/services/CarManagerService.java
