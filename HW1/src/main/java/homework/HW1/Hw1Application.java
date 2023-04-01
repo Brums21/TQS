@@ -24,7 +24,7 @@ public class Hw1Application {
 			AirConditionResolver resolver = new AirConditionResolver(new HttpClientAPI());
 
 			Optional<AirCondition> result = resolver.currentAirPollution(80.633116, -40.658784);
-			log.info("Result: ".concat(result.get().toString()));
+			//log.info("Result: ".concat(result.get().toString()));
 
 		} catch (URISyntaxException | IOException | ParseException | org.json.simple.parser.ParseException ex) {
 			log.error(String.valueOf(ex));
