@@ -1,9 +1,7 @@
 package homework.HW1.Model;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import java.lang.invoke.MethodHandles;
+import java.time.LocalDateTime;
 
 public class AirCondition {
 
@@ -27,7 +25,9 @@ public class AirCondition {
 
     private Double NH3;
 
-    public AirCondition(Double lat, Double lon, Double CO, Double NO, Double NO2, Double o3, Double SO2, Double PM2_5, Double PM10, Double NH3) {
+    private LocalDateTime LocalDateTime;
+
+    public AirCondition(Double lat, Double lon, LocalDateTime LocalDateTime, Double CO, Double NO, Double NO2, Double o3, Double SO2, Double PM2_5, Double PM10, Double NH3) {
         this.lat = lat;
         this.lon = lon;
         this.CO = CO;
@@ -38,11 +38,32 @@ public class AirCondition {
         this.PM2_5 = PM2_5;
         this.PM10 = PM10;
         this.NH3 = NH3;
+        this.LocalDateTime = LocalDateTime;
     }
 
-    public AirCondition(){
+    public AirCondition(){  // empty constructor
 
     }
+
+    public Double getLon() {
+        return lon;
+    }
+
+    public void setLon(Double lon) {
+        this.lon = lon;
+    }
+
+    public Double getLat() {
+        return lat;
+    }
+
+    public void setLat(Double lat) {
+        this.lat = lat;
+    }
+
+    public LocalDateTime getLocalDateTime(){ return this.LocalDateTime;}
+
+    public void setLocalDateTime(LocalDateTime LocalDateTime) { this.LocalDateTime = LocalDateTime; }
 
     public Double getCO() {
         return CO;
@@ -121,6 +142,7 @@ public class AirCondition {
                 ", PM2_5=" + PM2_5 +
                 ", PM10=" + PM10 +
                 ", NH3=" + NH3 +
-                '}';
+                ", LocalDateTime=" + LocalDateTime +
+                "} \n";
     }
 }
