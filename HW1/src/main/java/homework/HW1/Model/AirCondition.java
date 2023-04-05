@@ -25,9 +25,9 @@ public class AirCondition {
 
     private Double NH3;
 
-    private LocalDateTime LocalDateTime;
+    private LocalDateTime localDateTime;
 
-    public AirCondition(Double lat, Double lon, LocalDateTime LocalDateTime, Double CO, Double NO, Double NO2, Double o3, Double SO2, Double PM2_5, Double PM10, Double NH3) {
+    public AirCondition(Double lat, Double lon, LocalDateTime localDateTime, Double CO, Double NO, Double NO2, Double o3, Double SO2, Double PM2_5, Double PM10, Double NH3) {
         this.lat = lat;
         this.lon = lon;
         this.CO = CO;
@@ -38,7 +38,7 @@ public class AirCondition {
         this.PM2_5 = PM2_5;
         this.PM10 = PM10;
         this.NH3 = NH3;
-        this.LocalDateTime = LocalDateTime;
+        this.localDateTime = localDateTime;
     }
 
     public AirCondition(){  // empty constructor
@@ -61,9 +61,9 @@ public class AirCondition {
         this.lat = lat;
     }
 
-    public LocalDateTime getLocalDateTime(){ return this.LocalDateTime;}
+    public LocalDateTime getLocalDateTime(){ return this.localDateTime;}
 
-    public void setLocalDateTime(LocalDateTime LocalDateTime) { this.LocalDateTime = LocalDateTime; }
+    public void setLocalDateTime(LocalDateTime LocalDateTime) { this.localDateTime = LocalDateTime; }
 
     public Double getCO() {
         return CO;
@@ -129,6 +129,10 @@ public class AirCondition {
         this.NH3 = NH3;
     }
 
+    public int getHours(){
+        return this.localDateTime.getHour(); // devolve horas associadas
+    }
+
     @Override
     public String toString() {
         return "AirCondition{" +
@@ -142,7 +146,7 @@ public class AirCondition {
                 ", PM2_5=" + PM2_5 +
                 ", PM10=" + PM10 +
                 ", NH3=" + NH3 +
-                ", LocalDateTime=" + LocalDateTime +
+                ", LocalDateTime=" + localDateTime +
                 "} \n";
     }
 }

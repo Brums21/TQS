@@ -8,7 +8,6 @@ import org.json.simple.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.apache.http.ParseException;
-import org.springframework.cglib.core.Local;
 
 import java.io.IOException;
 import java.lang.invoke.MethodHandles;
@@ -17,8 +16,6 @@ import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 import java.util.Optional;
 
 public class AirConditionResolver {
@@ -61,7 +58,7 @@ public class AirConditionResolver {
             // get the first element of the results array
             obj = (JSONObject) ((JSONArray) obj.get("list")).get(0);
 
-            LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochSecond((long)obj.get("dt")), ZoneOffset.UTC);
+            LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochSecond((long)obj.get("dt")), ZoneOffset.of("+01:00"));
 
             if (obj.isEmpty()) {
                 return Optional.empty();
@@ -78,14 +75,14 @@ public class AirConditionResolver {
                 Double PM10 = ((Number) obj.get("pm10")).doubleValue();
                 Double NH3 = ((Number) obj.get("nh3")).doubleValue();
 
-
+                log.info(Optional.of(new AirCondition(latitude, longitude, date, CO, NO, NO2, o3, SO2, PM2_5, PM10, NH3)).toString());
                 return Optional.of(new AirCondition(latitude, longitude, date, CO, NO, NO2, o3, SO2, PM2_5, PM10, NH3));
             }
         }
     
     }
 
-    public List<AirCondition> airPollutionDates(Double latitude, Double longitude, LocalDateTime start, LocalDateTime end) throws URISyntaxException, IOException, ParseException, org.json.simple.parser.ParseException {
+    public ArrayList<AirCondition> airPollutionDates(Double latitude, Double longitude, LocalDateTime start, LocalDateTime end) throws URISyntaxException, IOException, ParseException, org.json.simple.parser.ParseException {
 
         ArrayList<AirCondition> array = new ArrayList<>();
 
