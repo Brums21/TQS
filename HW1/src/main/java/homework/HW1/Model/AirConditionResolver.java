@@ -58,7 +58,7 @@ public class AirConditionResolver {
             // get the first element of the results array
             obj = (JSONObject) ((JSONArray) obj.get("list")).get(0);
 
-            LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochSecond((long)obj.get("dt")), ZoneOffset.of("+01:00"));
+            LocalDateTime date = LocalDateTime.ofInstant(Instant.ofEpochSecond((long)obj.get("dt")), ZoneOffset.UTC);
 
             if (obj.isEmpty()) {
                 return Optional.empty();
@@ -95,7 +95,6 @@ public class AirConditionResolver {
         uriBuilder.addParameter("lon", longitude.toString());
         uriBuilder.addParameter("start", String.valueOf(start.toEpochSecond(ZoneOffset.UTC)));
         uriBuilder.addParameter("end", String.valueOf(end.toEpochSecond(ZoneOffset.UTC)));
-
 
         String apiResponse = this.httpClient.doHttpGet(uriBuilder.build().toString());
         log.debug("remote response: " + apiResponse);

@@ -7,7 +7,6 @@ import homework.HW1.connection.HttpClientAPI;
 import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -15,7 +14,6 @@ import java.lang.invoke.MethodHandles;
 import java.net.URISyntaxException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -41,7 +39,7 @@ public class AirConditionService {
     private final AirConditionResolver resolver = new AirConditionResolver(new HttpClientAPI());
 
     public AirCondition getAirCondition(Double latitude, Double longitude) throws URISyntaxException, IOException, ParseException {
-        log.info("hello");
+        log.info("in service -> getAirCondition");
         AirCondition condition = cache.checkIfInCacheCurrent(latitude, longitude);
         if (condition!=null){
             return condition;
@@ -53,7 +51,7 @@ public class AirConditionService {
             cache.addToCacheCurrent(conditionAPI.get());
             return conditionAPI.get();
         }
-        log.info("couldnt find anything");
+        log.info("couldn't find anything");
         return null;
 
     }
@@ -63,11 +61,13 @@ public class AirConditionService {
         ArrayList<AirCondition> cacheDays = cache.checkIfInCacheDays(latitude, longitude, start, end);
 
         if (cacheDays!=null){
+            log.info("Its in the cache");
             return cacheDays;
         }
 
         ArrayList<AirCondition> conditions = resolver.airPollutionDates(latitude, longitude, start, end);
         cache.addToCacheDays(conditions);
+        log.info("in try by dates outside chillin");
         return conditions;
 
     }

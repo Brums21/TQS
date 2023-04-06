@@ -5,17 +5,17 @@ import homework.HW1.Service.AirConditionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.lang.invoke.MethodHandles;
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.ArrayList;
 
-@org.springframework.web.bind.annotation.RestController
-@RequestMapping("air_pollution")
+@Controller
 public class RestController {
 
     static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
@@ -27,41 +27,48 @@ public class RestController {
     }
 
     @GetMapping("/current")
-    public ResponseEntity<AirCondition> getCurrentAirPollution(@RequestParam("lat") Double lat, @RequestParam("lon") Double lon){
+    public String getCurrentAirPollution(@RequestParam(value = "lat") Double lat, @RequestParam(value = "lon") Double lon, Model model){
         try {
             log.info("In current try mapping");
-            AirCondition condition = airService.getAirCondition(lat, lon);
-            return ResponseEntity.ok().body(condition);
+            AirCondition airConditions = airService.getAirCondition(lat, lon);
+            model.addAttribute("airConditions", airConditions);
+            return "index";
         }
         catch (Exception e){
             log.error("Not found");
-            return ResponseEntity.notFound().build();
+            return "index";
         }
     }
 
-    // forecast para 7 dias
+    // forecast para 1 dia - hora a hora
     @GetMapping("/forecast")
-    public ResponseEntity<ArrayList<AirCondition>> getForecastAirPollution(@RequestParam("lat") Double lat, @RequestParam("lon") Double lon){
+    public String getForecastAirPollution(@RequestParam("lat") Double lat, @RequestParam("lon") Double lon, Model model){
         try{
-            ArrayList<AirCondition> conditions = airService.getAirConditionByDates(lat, lon, LocalDateTime.now(), LocalDateTime.now().plusDays(7));
-            return ResponseEntity.ok().body(conditions);
+            ArrayList<AirCondition> conditionsForecast = airService.getAirConditionByDates(lat, lon, LocalDateTime.now(ZoneOffset.UTC), LocalDateTime.now(ZoneOffset.UTC).plusDays(1));
+            model.addAttribute("forecast", conditionsForecast);
+            return "index";
         }
         catch (Exception e){
-            return ResponseEntity.notFound().build();
+            return "index";
         }
     }
 
     @GetMapping("/by_dates")
-    public ResponseEntity<ArrayList<AirCondition>> getAirPollutionByDays(@RequestParam("lat") Double lat,
-                                                                         @RequestParam("lon") Double lon,
-                                                                         @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startDate,
-                                                                         @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endDate){
+    public String getAirPollutionByDays(@RequestParam("lat") Double lat,
+                                        @RequestParam("lon") Double lon,
+                                        @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime startDate,
+                                        @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime endDate,
+                                        Model model){
+
         try{
-            ArrayList<AirCondition> conditions = airService.getAirConditionByDates(lat, lon, startDate, endDate);
-            return ResponseEntity.ok().body(conditions);
+            log.info("in here");
+            ArrayList<AirCondition> conditionsDates = airService.getAirConditionByDates(lat, lon, startDate, endDate);
+            log.info(conditionsDates.toString());
+            model.addAttribute("byDates", conditionsDates);
+            return "index";
         }
         catch (Exception e){
-            return ResponseEntity.notFound().build();
+            return "index";
         }
 
 
