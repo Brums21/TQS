@@ -5,10 +5,6 @@ import homework.HW1.Service.AirConditionService;
 import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.core.Local;
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,14 +17,14 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 
-@Controller
-public class RestController {
+@org.springframework.stereotype.Controller
+public class Controller {
 
     static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     private final AirConditionService airService;
 
-    public RestController(AirConditionService service){
+    public Controller(AirConditionService service){
         this.airService = service;
     }
 

@@ -1,6 +1,6 @@
 package homework.HW1;
 
-import homework.HW1.Controller.RestController;
+import homework.HW1.Controller.Controller;
 import homework.HW1.Model.AirCondition;
 import homework.HW1.Service.AirConditionService;
 import org.junit.jupiter.api.Test;
@@ -21,7 +21,7 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(RestController.class)
+@WebMvcTest(Controller.class)
 @ExtendWith(MockitoExtension.class)
 public class WebMVCTest {
 
