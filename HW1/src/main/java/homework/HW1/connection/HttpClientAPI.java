@@ -20,8 +20,10 @@ public class HttpClientAPI implements HttpClient{
             return EntityUtils.toString(entity);
         }
         finally {
-            if (response != null)
+            if (response != null){
+                client.close();
                 response.close();
+            }
         }
 
     }

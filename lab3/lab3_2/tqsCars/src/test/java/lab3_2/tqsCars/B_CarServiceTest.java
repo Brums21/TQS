@@ -6,7 +6,6 @@ import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -38,11 +37,9 @@ public class B_CarServiceTest {
         carro1.setCarId(20L);
 
         List<Car> carros = Arrays.asList(carro1, carro2, carro3, carro4);
-        
 
         Mockito.when(repository.findAll()).thenReturn(carros);
         Mockito.when(repository.findByCarId(carro1.getCarId())).thenReturn(carro1);
-
 
     }
 

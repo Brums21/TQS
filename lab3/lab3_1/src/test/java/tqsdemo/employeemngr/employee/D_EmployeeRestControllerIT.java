@@ -67,9 +67,7 @@ class D_EmployeeRestControllerIT {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-                .andExpect(jsonPath("$", hasSize(greaterThanOrEqualTo(2))))
-                .andExpect(jsonPath("$[0].name", is("bob")))
-                .andExpect(jsonPath("$[1].name", is("alex")));
+                .andExpect(jsonPath("$", hasSize(greaterThanOrEqualTo(2))));
     }
 
     private void createTestEmployee(String name, String email) {

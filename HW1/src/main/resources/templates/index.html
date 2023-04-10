@@ -1,153 +1,198 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<h1>HW1 - TQS Application</h1>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
 <head>
     <title>
         HW1 - TQS
     </title>
-    <!--
-    maybe adicionar biblioteca do bootstrap... -> ver depois se ha tempo
-    -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .container {
+            margin-top: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        form {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        table {
+            margin-top: 20px;
+        }
+        button[type="submit"] {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
 
-    <form th:action="@{/current}" method="get">
-        <label for="latCurrent">Latitude: </label>
-        <input type="text" id="latCurrent" name="lat" placeholder="latitude"><br/>
+    <div class="container">
 
-        <label for="lonCurrent">Longitude: </label>
-        <input type="text" name="lon" id="lonCurrent" placeholder="longitude"><br/>
+        <h1>HW1 - TQS Application</h1>
 
-        <button type="submit">Get Air Pollution Data currently</button>
-    </form>
+        <div class = "container">
+            <form th:action="@{/stats}" method="get">
+                <button type="submit">Get Cache Statistics!</button>
+            </form>
+        </div>
+        <div th:if="${hitsMessage}" th:text="${hitsMessage}"></div>
+        <div th:if="${missesMessage}" th:text="${missesMessage}"></div>
+        <div th:if="${requestMessage}" th:text="${requestMessage}"></div>
 
-    <form th:action="@{/forecast}" method="get">
-        <label for="latForecast">Latitude: </label>
-        <input type="text" id="latForecast" name="lat" placeholder="latitude"><br/>
+        <form th:action="@{/current}" method="get">
+            <label for="latCurrent">Latitude: </label>
+            <input type="text" id="latCurrent" name="lat" placeholder="latitude" required><br/>
 
-        <label for="lonForecast">Longitude: </label>
-        <input type="text" name="lon" id="lonForecast" placeholder="longitude"><br/>
+            <label for="lonCurrent">Longitude: </label>
+            <input type="text" name="lon" id="lonCurrent" placeholder="longitude" required><br/>
 
-        <button type="submit">Get Air Pollution Forecast for one day</button>
-    </form>
+            <button type="submit">Get Air Pollution Data currently</button>
+        </form>
 
-    <form th:action="@{/by_dates}" method="get">
-        <label for="latDates">Latitude: </label>
-        <input type="text" id="latDates" name="lat" placeholder="latitude"><br/>
+        <div class="container">
+            <table th:if="${airConditions}" class = "table">
+                <thead>
+                <tr>
+                    <th> Time </th>
+                    <th> Latitude </th>
+                    <th> Longitude </th>
+                    <th> CO </th>
+                    <th> NO </th>
+                    <th> NO2 </th>
+                    <th> O3 </th>
+                    <th> SO2 </th>
+                    <th> PM2_5 </th>
+                    <th> PM10 </th>
+                    <th> NH3 </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="aircondition : ${airConditions}">
+                    <th th:text="${aircondition.getLocalDateTime()}"></th>
+                    <th th:text="${aircondition.getLat()}"></th>
+                    <th th:text="${aircondition.getLon()}"></th>
+                    <th th:text="${aircondition.getCO()}"></th>
+                    <th th:text="${aircondition.getNO()}"></th>
+                    <th th:text="${aircondition.getNO2()}"></th>
+                    <th th:text="${aircondition.getO3()}"></th>
+                    <th th:text="${aircondition.getSO2()}"></th>
+                    <th th:text="${aircondition.getPM2_5()}"></th>
+                    <th th:text="${aircondition.getPM10()}"></th>
+                    <th th:text="${aircondition.getNH3()}"></th>
+                </tr>
+                </tbody>
+            </table>
+            <div th:if="${errorMessage}" th:text="${errorMessage}" style="color:red"></div>
+        </div>
 
-        <label for="lonDates">Longitude: </label>
-        <input type="text" name="lon" id="lonDates" placeholder="longitude"><br/>
+        <form th:action="@{/forecast}" method="get">
+            <label for="latForecast">Latitude: </label>
+            <input type="text" id="latForecast" name="lat" placeholder="latitude"><br/>
 
-        <label for="startDate">Start date: </label>
-        <input type="text" name="startDate" id="startDate" placeholder="yyyy-mm-ddThh:mm:ss"><br/>
+            <label for="lonForecast">Longitude: </label>
+            <input type="text" name="lon" id="lonForecast" placeholder="longitude"><br/>
 
-        <label for="endDate">End date: </label>
-        <input type="text" name="endDate" id="endDate" placeholder="yyyy-mm-ddThh:mm:ss"><br/>
+            <button type="submit">Get Air Pollution Forecast for one day</button>
+        </form>
 
-        <button type="submit">Get Air Pollution Forecast from start date to end date</button>
-    </form>
+        <div class="container">
+            <table th:if="${forecast}" class = "table">
+                <thead>
+                <tr>
+                    <th> Time </th>
+                    <th> Latitude </th>
+                    <th> Longitude </th>
+                    <th> CO </th>
+                    <th> NO </th>
+                    <th> NO2 </th>
+                    <th> O3 </th>
+                    <th> SO2 </th>
+                    <th> PM2_5 </th>
+                    <th> PM10 </th>
+                    <th> NH3 </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="aircondition : ${forecast}">
+                    <th th:text="${aircondition.getLocalDateTime()}"></th>
+                    <th th:text="${aircondition.getLat()}"></th>
+                    <th th:text="${aircondition.getLon()}"></th>
+                    <th th:text="${aircondition.getCO()}"></th>
+                    <th th:text="${aircondition.getNO()}"></th>
+                    <th th:text="${aircondition.getNO2()}"></th>
+                    <th th:text="${aircondition.getO3()}"></th>
+                    <th th:text="${aircondition.getSO2()}"></th>
+                    <th th:text="${aircondition.getPM2_5()}"></th>
+                    <th th:text="${aircondition.getPM10()}"></th>
+                    <th th:text="${aircondition.getNH3()}"></th>
+                </tr>
+                </tbody>
 
-    <table th:if="${airConditions}">
-        <thead>
-        <tr>
-            <th> Time </th>
-            <th> Latitude </th>
-            <th> Longitude </th>
-            <th> CO </th>
-            <th> NO </th>
-            <th> NO2 </th>
-            <th> O3 </th>
-            <th> SO2 </th>
-            <th> PM2_5 </th>
-            <th> PM10 </th>
-            <th> NH3 </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="aircondition : ${airConditions}">
-            <th th:text="${aircondition.getLocalDateTime()}"></th>
-            <th th:text="${aircondition.getLat()}"></th>
-            <th th:text="${aircondition.getLon()}"></th>
-            <th th:text="${aircondition.getCO()}"></th>
-            <th th:text="${aircondition.getNO()}"></th>
-            <th th:text="${aircondition.getNO2()}"></th>
-            <th th:text="${aircondition.getO3()}"></th>
-            <th th:text="${aircondition.getSO2()}"></th>
-            <th th:text="${aircondition.getPM2_5()}"></th>
-            <th th:text="${aircondition.getPM10()}"></th>
-            <th th:text="${aircondition.getNH3()}"></th>
-        </tr>
-        </tbody>
-    </table>
-    <table th:if="${forecast}">
-        <thead>
-        <tr>
-            <th> Time </th>
-            <th> Latitude </th>
-            <th> Longitude </th>
-            <th> CO </th>
-            <th> NO </th>
-            <th> NO2 </th>
-            <th> O3 </th>
-            <th> SO2 </th>
-            <th> PM2_5 </th>
-            <th> PM10 </th>
-            <th> NH3 </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="aircondition : ${forecast}">
-            <th th:text="${aircondition.getLocalDateTime()}"></th>
-            <th th:text="${aircondition.getLat()}"></th>
-            <th th:text="${aircondition.getLon()}"></th>
-            <th th:text="${aircondition.getCO()}"></th>
-            <th th:text="${aircondition.getNO()}"></th>
-            <th th:text="${aircondition.getNO2()}"></th>
-            <th th:text="${aircondition.getO3()}"></th>
-            <th th:text="${aircondition.getSO2()}"></th>
-            <th th:text="${aircondition.getPM2_5()}"></th>
-            <th th:text="${aircondition.getPM10()}"></th>
-            <th th:text="${aircondition.getNH3()}"></th>
-        </tr>
-        </tbody>
+            </table>
+            <div th:if="${errorMessage1}" th:text="${errorMessage1}" style="color:red"></div>
+        </div>
 
-    </table>
-    <table th:if="${byDates}">
-        <thead>
-        <tr>
-            <th> Time </th>
-            <th> Latitude </th>
-            <th> Longitude </th>
-            <th> CO </th>
-            <th> NO </th>
-            <th> NO2 </th>
-            <th> O3 </th>
-            <th> SO2 </th>
-            <th> PM2_5 </th>
-            <th> PM10 </th>
-            <th> NH3 </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="aircondition : ${byDates}">
-            <th th:text="${aircondition.getLocalDateTime()}"></th>
-            <th th:text="${aircondition.getLat()}"></th>
-            <th th:text="${aircondition.getLon()}"></th>
-            <th th:text="${aircondition.getCO()}"></th>
-            <th th:text="${aircondition.getNO()}"></th>
-            <th th:text="${aircondition.getNO2()}"></th>
-            <th th:text="${aircondition.getO3()}"></th>
-            <th th:text="${aircondition.getSO2()}"></th>
-            <th th:text="${aircondition.getPM2_5()}"></th>
-            <th th:text="${aircondition.getPM10()}"></th>
-            <th th:text="${aircondition.getNH3()}"></th>
-        </tr>
-        </tbody>
+        <form th:action="@{/by_dates}" method="get">
+            <label for="latDates">Latitude: </label>
+            <input type="text" id="latDates" name="lat" placeholder="latitude"><br/>
 
-    </table>
+            <label for="lonDates">Longitude: </label>
+            <input type="text" name="lon" id="lonDates" placeholder="longitude"><br/>
+
+            <label for="startDate">Start date: </label>
+            <input type="text" name="startDate" id="startDate" placeholder="yyyy-mm-ddThh:mm:ss"><br/>
+
+            <label for="endDate">End date: </label>
+            <input type="text" name="endDate" id="endDate" placeholder="yyyy-mm-ddThh:mm:ss"><br/>
+
+            <button type="submit">Get Air Pollution Forecast from start date to end date</button>
+        </form>
+
+        <div class="container">
+            <table th:if="${byDates}" class = "table">
+                <thead>
+                    <tr>
+                        <th> Time </th>
+                        <th> Latitude </th>
+                        <th> Longitude </th>
+                        <th> CO </th>
+                        <th> NO </th>
+                        <th> NO2 </th>
+                        <th> O3 </th>
+                        <th> SO2 </th>
+                        <th> PM2_5 </th>
+                        <th> PM10 </th>
+                        <th> NH3 </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="aircondition : ${byDates}">
+                        <th th:text="${aircondition.getLocalDateTime()}"></th>
+                        <th th:text="${aircondition.getLat()}"></th>
+                        <th th:text="${aircondition.getLon()}"></th>
+                        <th th:text="${aircondition.getCO()}"></th>
+                        <th th:text="${aircondition.getNO()}"></th>
+                        <th th:text="${aircondition.getNO2()}"></th>
+                        <th th:text="${aircondition.getO3()}"></th>
+                        <th th:text="${aircondition.getSO2()}"></th>
+                        <th th:text="${aircondition.getPM2_5()}"></th>
+                        <th th:text="${aircondition.getPM10()}"></th>
+                        <th th:text="${aircondition.getNH3()}"></th>
+                    </tr>
+                </tbody>
+
+            </table>
+            <div th:if="${errorMessage2}" th:text="${errorMessage2}" style="color:red"></div>
+        </div>
+
+        <p><small>Realizado por Bruna Simões nmec 103453, LEI</small></p>
+    </div>
 
 
-
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 </body>
 </html>

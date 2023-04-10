@@ -17,9 +17,9 @@ public class Cache {
 
     private final long TTL = 240;
 
-    private final HashMap<AirCondition, LocalDateTime> cacheCurrent = new HashMap<>();
+    public final HashMap<AirCondition, LocalDateTime> cacheCurrent = new HashMap<>();
 
-    private final HashMap<ArrayList<AirCondition>, LocalDateTime> cacheDays = new HashMap<>();
+    public final HashMap<ArrayList<AirCondition>, LocalDateTime> cacheDays = new HashMap<>();
 
     private int hits = 0;
 
@@ -27,6 +27,15 @@ public class Cache {
 
     public Cache(){
 
+    }
+
+
+    public int getHits(){
+        return this.hits;
+    }
+
+    public int getMisses(){
+        return this.misses;
     }
 
     public void addToCacheCurrent(AirCondition airCondition){
@@ -38,7 +47,7 @@ public class Cache {
     public boolean isExpired(LocalDateTime localDateTime){
         LocalDateTime now = LocalDateTime.now(ZoneOffset.UTC);
         long duration = Duration.between(now, localDateTime).getSeconds();
-        return duration > TTL;
+        return duration >= TTL;
     }
 
     public AirCondition checkIfInCacheCurrent(Double latitude, Double longitude){  // so applicable para current

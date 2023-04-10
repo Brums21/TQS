@@ -1,0 +1,736 @@
+{
+  "id": "5acf7b67-466a-426c-911c-34503a854816",
+  "version": "2.0",
+  "name": "HW1",
+  "url": "http://localhost:8082",
+  "tests": [{
+    "id": "d88f116e-568f-48c7-8205-2fc634865ec1",
+    "name": "Test Current Correct",
+    "commands": [{
+      "id": "f5a48182-8726-444c-9520-46117c7f4207",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "35312e71-ac77-44f3-ba1e-09e42e14ddea",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "916x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b5c47074-1814-4735-a76f-d08b5a8f793a",
+      "comment": "",
+      "command": "click",
+      "target": "id=latCurrent",
+      "targets": [
+        ["id=latCurrent", "id"],
+        ["name=lat", "name"],
+        ["css=#latCurrent", "css:finder"],
+        ["xpath=//input[@id='latCurrent']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b13d8a13-2c9f-4fa5-86af-0a897a8076af",
+      "comment": "",
+      "command": "type",
+      "target": "id=latCurrent",
+      "targets": [
+        ["id=latCurrent", "id"],
+        ["name=lat", "name"],
+        ["css=#latCurrent", "css:finder"],
+        ["xpath=//input[@id='latCurrent']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "50.0"
+    }, {
+      "id": "c32b53e5-7872-4a90-bb78-e898fecd5b09",
+      "comment": "",
+      "command": "click",
+      "target": "id=lonCurrent",
+      "targets": [
+        ["id=lonCurrent", "id"],
+        ["name=lon", "name"],
+        ["css=#lonCurrent", "css:finder"],
+        ["xpath=//input[@id='lonCurrent']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "afee4e30-fcbf-4620-b06d-a1b84848ed48",
+      "comment": "",
+      "command": "type",
+      "target": "id=lonCurrent",
+      "targets": [
+        ["id=lonCurrent", "id"],
+        ["name=lon", "name"],
+        ["css=#lonCurrent", "css:finder"],
+        ["xpath=//input[@id='lonCurrent']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "-8.1"
+    }, {
+      "id": "0fc0052a-cae9-4e05-85c6-038db6ac60b1",
+      "comment": "",
+      "command": "click",
+      "target": "css=form:nth-child(3) > button",
+      "targets": [
+        ["css=form:nth-child(3) > button", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//body/div/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Get Air Pollution Data currently')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cdbc486e-9ac1-4576-a56d-36e5abe46aef",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tbody th:nth-child(2)",
+      "targets": [
+        ["css=tbody th:nth-child(2)", "css:finder"],
+        ["xpath=//tbody/tr/th[2]", "xpath:position"],
+        ["xpath=//th[contains(.,'50.0')]", "xpath:innerText"]
+      ],
+      "value": "50.0"
+    }, {
+      "id": "f79752a6-e2e3-43f5-89eb-3418c8a62f77",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "78018d24-6e66-4b20-8871-fdd0a8cc76c0",
+    "name": "Test Forecast Correct",
+    "commands": [{
+      "id": "6f0b1320-90ef-4426-a113-0acdc49f3da8",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "359acdfb-4020-4de4-aa93-bbcb53144f67",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "916x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dc5202b0-3b7d-4c41-b80d-215a2de8b124",
+      "comment": "",
+      "command": "click",
+      "target": "id=latForecast",
+      "targets": [
+        ["id=latForecast", "id"],
+        ["css=#latForecast", "css:finder"],
+        ["xpath=//input[@id='latForecast']", "xpath:attributes"],
+        ["xpath=//form[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "369fcf08-f067-43fd-8b47-c2662e18fad6",
+      "comment": "",
+      "command": "type",
+      "target": "id=latForecast",
+      "targets": [
+        ["id=latForecast", "id"],
+        ["css=#latForecast", "css:finder"],
+        ["xpath=//input[@id='latForecast']", "xpath:attributes"],
+        ["xpath=//form[2]/input", "xpath:position"]
+      ],
+      "value": "50.0"
+    }, {
+      "id": "8ad6ceaf-3adb-4f96-9353-d8f620fbde5b",
+      "comment": "",
+      "command": "click",
+      "target": "id=lonForecast",
+      "targets": [
+        ["id=lonForecast", "id"],
+        ["css=#lonForecast", "css:finder"],
+        ["xpath=//input[@id='lonForecast']", "xpath:attributes"],
+        ["xpath=//form[2]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "09fa445d-0d51-4859-9bd3-c9c891ce91ea",
+      "comment": "",
+      "command": "type",
+      "target": "id=lonForecast",
+      "targets": [
+        ["id=lonForecast", "id"],
+        ["css=#lonForecast", "css:finder"],
+        ["xpath=//input[@id='lonForecast']", "xpath:attributes"],
+        ["xpath=//form[2]/input[2]", "xpath:position"]
+      ],
+      "value": "-8.1"
+    }, {
+      "id": "d3484f84-680c-41b9-96e0-a356ac4f2735",
+      "comment": "",
+      "command": "click",
+      "target": "css=form:nth-child(5) > button",
+      "targets": [
+        ["css=form:nth-child(5) > button", "css:finder"],
+        ["xpath=(//button[@type='submit'])[3]", "xpath:attributes"],
+        ["xpath=//form[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Get Air Pollution Forecast for one day')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f4e35a0b-7d43-493b-bcb3-7fa374b3ee3c",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(24) > th:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(24) > th:nth-child(2)", "css:finder"],
+        ["xpath=//tr[24]/th[2]", "xpath:position"]
+      ],
+      "value": "50.0"
+    }, {
+      "id": "ba856643-dd52-4aea-8006-667705a4fbe7",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "46b5ea6a-4418-439e-a337-0b431fe95c2e",
+    "name": "Test Dates Incorrect Date",
+    "commands": [{
+      "id": "85100950-a1fe-42ac-8f80-1c395e3b536c",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f8681a21-e060-46fe-9c3d-9e64c36b82fe",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "916x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "01985095-4cf5-4be7-8ac3-1d6a0a5b0a17",
+      "comment": "",
+      "command": "click",
+      "target": "id=latDates",
+      "targets": [
+        ["id=latDates", "id"],
+        ["css=#latDates", "css:finder"],
+        ["xpath=//input[@id='latDates']", "xpath:attributes"],
+        ["xpath=//form[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "946873cc-7440-447a-bd7c-14db232d0b2d",
+      "comment": "",
+      "command": "type",
+      "target": "id=latDates",
+      "targets": [
+        ["id=latDates", "id"],
+        ["css=#latDates", "css:finder"],
+        ["xpath=//input[@id='latDates']", "xpath:attributes"],
+        ["xpath=//form[3]/input", "xpath:position"]
+      ],
+      "value": "50.0"
+    }, {
+      "id": "61bfde99-fb84-4cea-abeb-a1969a7791a9",
+      "comment": "",
+      "command": "click",
+      "target": "id=lonDates",
+      "targets": [
+        ["id=lonDates", "id"],
+        ["css=#lonDates", "css:finder"],
+        ["xpath=//input[@id='lonDates']", "xpath:attributes"],
+        ["xpath=//form[3]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cec693a6-8490-4ec5-ad6e-418c76f7ba3d",
+      "comment": "",
+      "command": "type",
+      "target": "id=lonDates",
+      "targets": [
+        ["id=lonDates", "id"],
+        ["css=#lonDates", "css:finder"],
+        ["xpath=//input[@id='lonDates']", "xpath:attributes"],
+        ["xpath=//form[3]/input[2]", "xpath:position"]
+      ],
+      "value": "-8.1"
+    }, {
+      "id": "7e6858df-b9f5-4e39-8c28-7997c83ad7b9",
+      "comment": "",
+      "command": "click",
+      "target": "id=startDate",
+      "targets": [
+        ["id=startDate", "id"],
+        ["name=startDate", "name"],
+        ["css=#startDate", "css:finder"],
+        ["xpath=//input[@id='startDate']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fde5af72-bccd-431b-a0aa-c5968aa1eab5",
+      "comment": "",
+      "command": "type",
+      "target": "id=startDate",
+      "targets": [
+        ["id=startDate", "id"],
+        ["name=startDate", "name"],
+        ["css=#startDate", "css:finder"],
+        ["xpath=//input[@id='startDate']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "2023-03-02T23:03:21"
+    }, {
+      "id": "6f599d07-0a91-4c5f-8bc6-dbec69b0a726",
+      "comment": "",
+      "command": "click",
+      "target": "id=endDate",
+      "targets": [
+        ["id=endDate", "id"],
+        ["name=endDate", "name"],
+        ["css=#endDate", "css:finder"],
+        ["xpath=//input[@id='endDate']", "xpath:attributes"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2614fc9b-dec2-4eee-b75e-a6370af754b1",
+      "comment": "",
+      "command": "type",
+      "target": "id=endDate",
+      "targets": [
+        ["id=endDate", "id"],
+        ["name=endDate", "name"],
+        ["css=#endDate", "css:finder"],
+        ["xpath=//input[@id='endDate']", "xpath:attributes"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "bad formatted date"
+    }, {
+      "id": "26f36264-635d-4dae-a9e5-db59e4e81f94",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(13)",
+      "targets": [
+        ["css=button:nth-child(13)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[4]", "xpath:attributes"],
+        ["xpath=//form[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Get Air Pollution Forecast from start date to end date')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b7767758-76d7-494b-88c5-8bc9edd84fdd",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.container:nth-child(8) > div",
+      "targets": [
+        ["css=.container:nth-child(8) > div", "css:finder"],
+        ["xpath=//div[4]/div", "xpath:position"]
+      ],
+      "value": "Date format is incorrect"
+    }, {
+      "id": "87a747ff-801b-452a-beb3-623e20447b38",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "bb8dbdfc-06d5-4803-a13c-decaf6e89bb2",
+    "name": "Test Current Incorrect",
+    "commands": [{
+      "id": "bd76489e-aace-4d01-b36a-72021492814c",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "13d91bcc-9752-4d08-b8fe-521a476aabbe",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "916x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6a4d2795-9bce-4dfb-aaca-5b9386539f3a",
+      "comment": "",
+      "command": "click",
+      "target": "id=latCurrent",
+      "targets": [
+        ["id=latCurrent", "id"],
+        ["name=lat", "name"],
+        ["css=#latCurrent", "css:finder"],
+        ["xpath=//input[@id='latCurrent']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "03feb251-384c-4e4d-beb9-00ef39053876",
+      "comment": "",
+      "command": "click",
+      "target": "id=latCurrent",
+      "targets": [
+        ["id=latCurrent", "id"],
+        ["name=lat", "name"],
+        ["css=#latCurrent", "css:finder"],
+        ["xpath=//input[@id='latCurrent']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8a9d3ca4-ab8d-4b0c-86ea-46a14ec26813",
+      "comment": "",
+      "command": "type",
+      "target": "id=latCurrent",
+      "targets": [
+        ["id=latCurrent", "id"],
+        ["name=lat", "name"],
+        ["css=#latCurrent", "css:finder"],
+        ["xpath=//input[@id='latCurrent']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "50.0"
+    }, {
+      "id": "383a69b2-259c-42d9-aa64-bc177dd7600f",
+      "comment": "",
+      "command": "click",
+      "target": "id=lonCurrent",
+      "targets": [
+        ["id=lonCurrent", "id"],
+        ["name=lon", "name"],
+        ["css=#lonCurrent", "css:finder"],
+        ["xpath=//input[@id='lonCurrent']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "195faed6-3f1f-47c8-b002-d87c78072954",
+      "comment": "",
+      "command": "type",
+      "target": "id=lonCurrent",
+      "targets": [
+        ["id=lonCurrent", "id"],
+        ["name=lon", "name"],
+        ["css=#lonCurrent", "css:finder"],
+        ["xpath=//input[@id='lonCurrent']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "latitude"
+    }, {
+      "id": "fcbabfe7-3455-487a-850e-bc753e32bc69",
+      "comment": "",
+      "command": "click",
+      "target": "css=form:nth-child(3) > button",
+      "targets": [
+        ["css=form:nth-child(3) > button", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//body/div/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Get Air Pollution Data currently')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "881b3cca-7d31-4e2b-9c9f-e02038eadc37",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.container:nth-child(4) > div",
+      "targets": [
+        ["css=.container:nth-child(4) > div", "css:finder"],
+        ["xpath=//div[2]/div", "xpath:position"]
+      ],
+      "value": "Only numbers accepted in the inputs"
+    }, {
+      "id": "4df9226f-81c6-4a6b-9740-6cbbf9eaf5ed",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "96be879e-0ea9-46c0-bbd6-8eb84ce38936",
+    "name": "Test Forecast Incorrect",
+    "commands": [{
+      "id": "f81763eb-62ea-403d-b760-deab4acc492a",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "53a0c296-2f6a-4936-a1bc-99e1149bcef0",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "916x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "59941dac-b67f-4d25-87dd-a8b471973662",
+      "comment": "",
+      "command": "click",
+      "target": "id=latForecast",
+      "targets": [
+        ["id=latForecast", "id"],
+        ["css=#latForecast", "css:finder"],
+        ["xpath=//input[@id='latForecast']", "xpath:attributes"],
+        ["xpath=//form[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "44dee5ab-a9da-4e29-9a24-7156761ba037",
+      "comment": "",
+      "command": "type",
+      "target": "id=latForecast",
+      "targets": [
+        ["id=latForecast", "id"],
+        ["css=#latForecast", "css:finder"],
+        ["xpath=//input[@id='latForecast']", "xpath:attributes"],
+        ["xpath=//form[2]/input", "xpath:position"]
+      ],
+      "value": "50.0"
+    }, {
+      "id": "9e2c77ed-f7e7-428e-a7b9-feebe27b0476",
+      "comment": "",
+      "command": "click",
+      "target": "id=lonForecast",
+      "targets": [
+        ["id=lonForecast", "id"],
+        ["css=#lonForecast", "css:finder"],
+        ["xpath=//input[@id='lonForecast']", "xpath:attributes"],
+        ["xpath=//form[2]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "11aedbc3-818e-450c-9dd5-b35c65b193bb",
+      "comment": "",
+      "command": "type",
+      "target": "id=lonForecast",
+      "targets": [
+        ["id=lonForecast", "id"],
+        ["css=#lonForecast", "css:finder"],
+        ["xpath=//input[@id='lonForecast']", "xpath:attributes"],
+        ["xpath=//form[2]/input[2]", "xpath:position"]
+      ],
+      "value": "latitude"
+    }, {
+      "id": "758563d8-ebc1-482e-936a-f6f02e542847",
+      "comment": "",
+      "command": "click",
+      "target": "css=form:nth-child(5) > button",
+      "targets": [
+        ["css=form:nth-child(5) > button", "css:finder"],
+        ["xpath=(//button[@type='submit'])[3]", "xpath:attributes"],
+        ["xpath=//form[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Get Air Pollution Forecast for one day')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "595209dc-4660-4c9c-b95c-93c63d1d6f96",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.container:nth-child(6) > div",
+      "targets": [
+        ["css=.container:nth-child(6) > div", "css:finder"],
+        ["xpath=//div[3]/div[3]/div", "xpath:position"]
+      ],
+      "value": "Only numbers accepted in the inputs"
+    }, {
+      "id": "596d7aa2-e679-4842-bcc0-580d92c968a6",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "b2b801cf-0f43-4dd9-b295-cb3f1ded5238",
+    "name": "Test Dates Incorrect Lat/Lon",
+    "commands": [{
+      "id": "5a5c2ab8-fb83-4266-b28e-cddeb85b1c55",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7a8060c0-17cd-40c5-9ced-fbda8bc4a42a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "916x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "09a4f7d4-a0a8-444a-bc6d-a4c58d725127",
+      "comment": "",
+      "command": "click",
+      "target": "id=latDates",
+      "targets": [
+        ["id=latDates", "id"],
+        ["css=#latDates", "css:finder"],
+        ["xpath=//input[@id='latDates']", "xpath:attributes"],
+        ["xpath=//form[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9211980a-eaf4-444f-b581-8e529653589a",
+      "comment": "",
+      "command": "type",
+      "target": "id=latDates",
+      "targets": [
+        ["id=latDates", "id"],
+        ["css=#latDates", "css:finder"],
+        ["xpath=//input[@id='latDates']", "xpath:attributes"],
+        ["xpath=//form[3]/input", "xpath:position"]
+      ],
+      "value": "50.0"
+    }, {
+      "id": "7a51f82f-daa6-4608-903e-a37bac948bd2",
+      "comment": "",
+      "command": "click",
+      "target": "id=lonDates",
+      "targets": [
+        ["id=lonDates", "id"],
+        ["css=#lonDates", "css:finder"],
+        ["xpath=//input[@id='lonDates']", "xpath:attributes"],
+        ["xpath=//form[3]/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1e1bf452-6bf7-4ca5-b1c8-9140ca00fa81",
+      "comment": "",
+      "command": "type",
+      "target": "id=lonDates",
+      "targets": [
+        ["id=lonDates", "id"],
+        ["css=#lonDates", "css:finder"],
+        ["xpath=//input[@id='lonDates']", "xpath:attributes"],
+        ["xpath=//form[3]/input[2]", "xpath:position"]
+      ],
+      "value": "-8.1"
+    }, {
+      "id": "821790bd-89d8-4d21-9eea-9a31b469baf5",
+      "comment": "",
+      "command": "click",
+      "target": "id=startDate",
+      "targets": [
+        ["id=startDate", "id"],
+        ["name=startDate", "name"],
+        ["css=#startDate", "css:finder"],
+        ["xpath=//input[@id='startDate']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5ae9603c-972d-4367-bd6b-4aa6921ebe82",
+      "comment": "",
+      "command": "click",
+      "target": "id=startDate",
+      "targets": [
+        ["id=startDate", "id"],
+        ["name=startDate", "name"],
+        ["css=#startDate", "css:finder"],
+        ["xpath=//input[@id='startDate']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3701b530-cb83-4f24-9baa-c736bddadc72",
+      "comment": "",
+      "command": "type",
+      "target": "id=startDate",
+      "targets": [
+        ["id=startDate", "id"],
+        ["name=startDate", "name"],
+        ["css=#startDate", "css:finder"],
+        ["xpath=//input[@id='startDate']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "2023-03-02T23:03:21"
+    }, {
+      "id": "498b1229-b4d7-4389-bad6-2dbd2a64030d",
+      "comment": "",
+      "command": "click",
+      "target": "id=endDate",
+      "targets": [
+        ["id=endDate", "id"],
+        ["name=endDate", "name"],
+        ["css=#endDate", "css:finder"],
+        ["xpath=//input[@id='endDate']", "xpath:attributes"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9317003d-562c-478d-ac24-729d14dc1222",
+      "comment": "",
+      "command": "type",
+      "target": "id=endDate",
+      "targets": [
+        ["id=endDate", "id"],
+        ["name=endDate", "name"],
+        ["css=#endDate", "css:finder"],
+        ["xpath=//input[@id='endDate']", "xpath:attributes"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "some date"
+    }, {
+      "id": "189239af-5b2a-4608-be26-e7163124c00f",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(13)",
+      "targets": [
+        ["css=button:nth-child(13)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[4]", "xpath:attributes"],
+        ["xpath=//form[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Get Air Pollution Forecast from start date to end date')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f23073b2-60df-4eb4-880a-05a6533db443",
+      "comment": "",
+      "command": "click",
+      "target": "css=body",
+      "targets": [
+        ["css=body", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c9a4b12e-341e-4929-a3d3-4db65e81f44c",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.container:nth-child(8) > div",
+      "targets": [
+        ["css=.container:nth-child(8) > div", "css:finder"],
+        ["xpath=//div[4]/div", "xpath:position"]
+      ],
+      "value": "Date format is incorrect"
+    }, {
+      "id": "cab401e6-516b-44ef-8b4a-897d09d5249a",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "0ca2a2c2-4883-4225-bb09-ac59e044cf64",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["d88f116e-568f-48c7-8205-2fc634865ec1"]
+  }],
+  "urls": ["http://localhost:8082/"],
+  "plugins": []
+}

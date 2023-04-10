@@ -7,6 +7,7 @@ import homework.HW1.connection.HttpClientAPI;
 import org.json.simple.parser.ParseException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -19,24 +20,32 @@ import java.util.Optional;
 @Service
 public class AirConditionService {
 
-    // servico para a api do aiorcondition
-    // repositorio corresponde a classe da cache -> adaptar corretamente
-
-    /*
-    * Metodos que a api ira ter ->
-    *
-    * GET -> air condition atual
-    * GET -> air condition de uma dada cena (???)
-    * */
-
-    // checkIfInCache(AirCondition airCondition)
-    // addToCache(AirCondition airCondition)
-
-    private final Cache cache = new Cache();
+    private Cache cache = new Cache();
 
     static final Logger log = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-    private final AirConditionResolver resolver = new AirConditionResolver(new HttpClientAPI());
+    private AirConditionResolver resolver = new AirConditionResolver(new HttpClientAPI());
+
+    public AirConditionService(Cache cache, AirConditionResolver resolver){
+        this.resolver = resolver;
+        this.cache = cache;
+    }
+
+    public AirConditionService(){
+
+    }
+
+    public String getHits(){
+        return String.valueOf(cache.getHits());
+    }
+
+    public String getMisses(){
+        return String.valueOf(cache.getMisses());
+    }
+
+    public String getRequests(){
+        return String.valueOf(cache.getMisses() + cache.getHits());
+    }
 
     public AirCondition getAirCondition(Double latitude, Double longitude) throws URISyntaxException, IOException, ParseException {
         log.info("in service -> getAirCondition");
@@ -67,12 +76,9 @@ public class AirConditionService {
 
         ArrayList<AirCondition> conditions = resolver.airPollutionDates(latitude, longitude, start, end);
         cache.addToCacheDays(conditions);
-        log.info("in try by dates outside chillin");
+        log.info("in try by dates");
         return conditions;
 
     }
-
-
-
 
 }

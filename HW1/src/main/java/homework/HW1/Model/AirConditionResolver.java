@@ -1,5 +1,6 @@
 package homework.HW1.Model;
 
+import homework.HW1.connection.HttpClient;
 import homework.HW1.connection.HttpClientAPI;
 import org.apache.http.client.utils.URIBuilder;
 import org.json.simple.JSONArray;
@@ -26,11 +27,11 @@ public class AirConditionResolver {
 
     private final String apiKey;
 
-    private final HttpClientAPI httpClient;
+    private final HttpClient httpClient;
 
     private URIBuilder uriBuilder;
 
-    public AirConditionResolver(HttpClientAPI httpClient) {
+    public AirConditionResolver(HttpClient httpClient) {
         this.httpClient = httpClient;
         this.apiKey = ConfigUtils.getPropertyFromConfig("key");
     }
@@ -46,13 +47,17 @@ public class AirConditionResolver {
         uriBuilder.addParameter("lon", longitude.toString());
 
         String apiResponse = this.httpClient.doHttpGet(uriBuilder.build().toString());
-        log.debug("remote response: " + apiResponse);
+        log.info("remote response: " + apiResponse);
 
 
         // get root object from JSON
         JSONObject obj = (JSONObject) new JSONParser().parse(apiResponse);
 
-        if( ((JSONArray)obj.get("list")).isEmpty()) {
+        if ((JSONArray)obj.get("list") == null){
+            return Optional.empty();
+        }
+
+        if (((JSONArray)obj.get("list")).isEmpty()) {
             return Optional.empty();
         }else {
             // get the first element of the results array
@@ -97,12 +102,15 @@ public class AirConditionResolver {
         uriBuilder.addParameter("end", String.valueOf(end.toEpochSecond(ZoneOffset.UTC)));
 
         String apiResponse = this.httpClient.doHttpGet(uriBuilder.build().toString());
-        log.debug("remote response: " + apiResponse);
+        log.info("remote response: " + apiResponse);
 
 
         // get root object from JSON
         JSONObject obj = (JSONObject) new JSONParser().parse(apiResponse);
 
+        if ((JSONArray)obj.get("list") == null){
+            return array;
+        }
         if( ((JSONArray)obj.get("list")).isEmpty()) {
             return array;
         }else {

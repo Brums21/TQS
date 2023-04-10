@@ -53,7 +53,7 @@ class AddressResolverTest {
 
         // will crash for now...need to set the resolver before using it
         Optional<Address> result = resolver.findAddressForLocation( 40.633116,-8.658784);
-
+        
         //return
         Address expected = new Address( "Avenida João Jacinto de Magalhães", "Aveiro", "", "3810-149", null);
 

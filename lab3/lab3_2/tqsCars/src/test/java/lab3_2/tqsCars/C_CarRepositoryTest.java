@@ -15,7 +15,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 
 @DataJpaTest
-@Disabled
 public class C_CarRepositoryTest {
     
     @Autowired
