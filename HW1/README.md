@@ -1,5 +1,7 @@
-Apontamentos a ter em consideracao:
+# 1st Individual Assignment
 
--> Cache sera desenvolvida com o time do request da api (calcular diferenca entre o tempo de realizacao da chamada a api e tempo atual)
+Homework for the "Testing and Software Quality", which main objetive includes developing an application that displays the meteorological conditions given a certain time period and a region. The meteorological data is given by the OpenWeather API. 
 
--> Os services em vez de usarem um repositorio irao utilizar a cache -> classe da cache criada e executar os respetivos testes - ver TTL
+This homework includes:
+- Unit and integration testing
+- Cache implemention for requests already made previously, with a certain TTL (Time To Live).
